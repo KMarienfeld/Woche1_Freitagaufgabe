@@ -2,14 +2,17 @@ package de.neueFische;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Scanner;
+import java.lang.*;
+
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Geben Sie ein Passwort ein und Drücken Sie Enter:");
+        System.out.println("Geben Sie ein Passwort ein und drücken Sie Enter:");
         String input = scanner.nextLine();
         passwortContainsNumber(input);
         passwortContainsNumber(input);
+        passwortContainsLowerCase(input);
         if (passwortCountSymbols(input) && passwortContainsNumber(input)) {
             System.out.println("Dein Passwort erfüllt alle Kriterien");
         }
@@ -18,6 +21,9 @@ public class Main {
         }
         if (passwortContainsNumber(input) == false) {
             System.out.println("Fehler: Das Passowort muss mindestens eine Zahl enthalten");
+        }
+        if (passwortContainsLowerCase()== false) {
+            System.out.println("Fehler: Das Passowort muss mindestens 1 Kleinbuchstaben enthalten");
         }
 
     }
@@ -39,4 +45,13 @@ public class Main {
     }
 
 
+    public static boolean passwortContainsLowerCase(String input) {
+
+        for (int i = 0; i<input.length(); i++) {
+
+            if (Character.isLowerCase(input.charAt(i))) {
+                return true;
+            }
+        }
+    }
 }

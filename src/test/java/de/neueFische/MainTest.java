@@ -66,4 +66,25 @@ class MainTest {
         assertFalse(actual);
     }
 
+    @Test
+    void passwortContainsOneLowerCase() {
+        //given
+        String input = "aEFASDFSEF8";
+
+        //when
+        boolean actual = Main.passwortContainsLowerCase(input);
+
+        //then
+        assertTrue(input);
+    }
+    void passwortDoesntContainsLowerCases() {
+        //given
+        String input = "SDFASDFSEF8";
+
+        //when
+        boolean actual = Main.passwortContainsLowerCase(input);
+
+        //then
+        assertFalse(input);
+    }
 }
