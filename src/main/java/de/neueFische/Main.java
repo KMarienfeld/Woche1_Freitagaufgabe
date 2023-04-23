@@ -13,7 +13,7 @@ public class Main {
         passwortContainsNumber(input);
         passwortContainsNumber(input);
         passwortContainsLowerCase(input);
-        if (passwortCountSymbols(input) && passwortContainsNumber(input)) {
+        if (passwortCountSymbols(input) && passwortContainsNumber(input) && passwortContainsLowerCase(input) && passwortContainsUpperCase(input)) {
             System.out.println("Dein Passwort erfüllt alle Kriterien");
         }
         if (passwortCountSymbols(input) == false) {
@@ -22,8 +22,11 @@ public class Main {
         if (passwortContainsNumber(input) == false) {
             System.out.println("Fehler: Das Passowort muss mindestens eine Zahl enthalten");
         }
-        if (passwortContainsLowerCase()== false) {
+        if (passwortContainsLowerCase(input)== false) {
             System.out.println("Fehler: Das Passowort muss mindestens 1 Kleinbuchstaben enthalten");
+        }
+        if (passwortContainsUpperCase(input) == false) {
+            System.out.println("Fehler: Das Passowort muss mindestens 1 Großbuchstabe enthalten");
         }
 
     }
@@ -44,7 +47,7 @@ public class Main {
         return false;
     }
 
-
+    // Bonus Aufgabe
     public static boolean passwortContainsLowerCase(String input) {
 
         for (int i = 0; i<input.length(); i++) {
@@ -53,5 +56,18 @@ public class Main {
                 return true;
             }
         }
+        return false;
     }
+
+
+    public static boolean passwortContainsUpperCase(String input) {
+
+        for (int i = 0; i<input.length(); i++) {
+            if (Character.isUpperCase(input.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

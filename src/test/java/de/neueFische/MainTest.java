@@ -75,8 +75,9 @@ class MainTest {
         boolean actual = Main.passwortContainsLowerCase(input);
 
         //then
-        assertTrue(input);
+        assertTrue(actual);
     }
+    @Test
     void passwortDoesntContainsLowerCases() {
         //given
         String input = "SDFASDFSEF8";
@@ -85,6 +86,28 @@ class MainTest {
         boolean actual = Main.passwortContainsLowerCase(input);
 
         //then
-        assertFalse(input);
+        assertFalse(actual);
+    }
+    @Test
+    void passwortContainsUpperCases() {
+        //given
+        String input = "SDFASDFSEF8";
+
+        //when
+        boolean actual = Main.passwortContainsUpperCase(input);
+
+        //then
+        assertTrue(actual);
+    }
+    @Test
+    void passwortDoesntContainsUpperCases() {
+        //given
+        String input = "khhkhukhuh8";
+
+        //when
+        boolean actual = Main.passwortContainsUpperCase(input);
+
+        //then
+        assertFalse(actual);
     }
 }
